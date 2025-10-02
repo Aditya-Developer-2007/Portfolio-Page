@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://imgs.search.brave.com/W754aLS508kpZaZCJ_74Ocnoj_ennpm-12QBy1NQsno/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZy/ZWVwaWsuY29tLzUx/Mi80MTY4LzQxNjg3/MTkucG5n" type="image/x-icon">
+    <title>Portfolio</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Navbar UI with glass effect */
+        #Navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.35);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(200,200,200,0.3);
+            border-radius: 20px;
+            height: 10vh;
+            width: 80vw;
+            margin: auto;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #Navbar .logo {
+            margin-left: 32px;
+            border: none;
+            width: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+        }
+        #Navbar .nav-links {
+            margin: 0 32px 0 0;
+            border: none;
+            width: auto;
+            height: auto;
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        #Navbar .nav-links a {
+            text-decoration: none;
+            color: rgb(73, 73, 73);
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+        #Navbar .nav-links a:hover {
+            color: #0088ff;
+        }
+        /* Hero Section */
+        #hero {
+            height: 90vh;
+            width: 80vw;
+            margin: auto;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #hero .hero-left {
+            height: 70vh;
+            width: 50vw;
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin-bottom: 50px;
+        }
+        #hero .hero-left p {
+            font-size: 18px;
+            color: rgb(73, 73, 73);
+            font-weight: 400;
+            margin-left: 50px;
+        }
+        #hero .hero-left h1 {
+            font-size: 50px;
+            color: rgb(0, 136, 255);
+            font-weight: 700;
+            margin-left: 50px;
+        }
+        #hero .hero-left h1 span {
+            color: black;
+        }
+        #hero .hero-left .desc {
+            font-size: 16px;
+            color: rgb(75, 75, 75);
+            font-weight: 400;
+            margin-top: 10px;
+            margin-left: 50px;
+        }
+        #hero .hero-left button {
+            height: 5vh;
+            width: 10vw;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            margin-left: 50px;
+            font-size: 16px;
+        }
+        #hero .hero-right {
+            height: 80vh;
+            width: 40vw;
+            margin-right: 20px;
+            border-radius: 67% 33% 68% 32% / 30% 52% 48% 70%;
+            margin-bottom: 50px;
+            overflow: hidden;
+            box-shadow: 4px 4px 18px rgba(0, 0, 0, 0.4), -4px -4px 18px rgba(0, 0, 0, 0.4);
+        }
+        #hero .hero-right img {
+            height: 100%;
+            width: 100%;
+            border-radius: 67% 33% 68% 32% / 30% 52% 48% 70%;
+            object-fit: cover;
+        }
+        /* Skills Section */
+        #skills {
+            height: 55vh;
+            width: 50vw;
+            margin: auto;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #skills h2 {
+            font-size: 30px;
+            color: black;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        #skills .skills-grid {
+            height: 70vh;
+            width: 70vw;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        #skills .skill-box {
+            height: 20vh;
+            width: 16vw;
+            border: none;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+            background: #fff;
+        }
+        #skills .skill-box img {
+            height: 60px;
+            width: 60px;
+        }
+        #skills .skill-box p {
+            font-size: 18px;
+            color: black;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        /* Projects Section */
+        #projects {
+            min-height: 50vh;
+            width: 80vw;
+            margin: 60px auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        #projects h2 {
+            font-size: 30px;
+            color: black;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        .projects-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+            width: 100%;
+        }
+        .project-card {
+            background: rgba(255,255,255,0.85);
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            width: 530px;
+            padding: 28px 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .project-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #0088ff;
+        }
+        .project-card p {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 18px;
+        }
+        .project-card .card-links {
+            margin-top: auto;
+            display: flex;
+            gap: 14px;
+        }
+        .project-card .card-links a {
+            color: #0088ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.16);
+        }
+        /* Contact Section */
+        #contact {
+     color: black;
+      padding: 60px 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #contact h2 { font-size: 28px; margin-bottom: 20px; }
+    #contact p { margin-bottom: 20px; font-size: 16px; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .contact-links a {
+      padding: 12px 24px; border-radius: 6px;
+      background: #0088ff; color: #fff;
+      text-decoration: none; transition: background .2s;
+    }
+    .contact-links a:hover { background: #006ad1; }
+
+    /* Footer */
+    footer {
+      text-align: center; padding: 20px;
+      background: #000; color: #aaa;
+      font-size: 14px;
+    }
+        /* Responsive */
+        @media (max-width: 1200px) {
+            #Navbar { width: 98vw; }
+            #hero, #skills, #projects, #contact { width: 98vw; }
+            #skills .skills-grid { width: 95vw; }
+            .projects-cards { width: 98vw; }
+        }
+        @media (max-width: 900px) {
+            #Navbar { flex-direction: column; height: auto; }
+            #Navbar .logo { margin: 20px 0 0 20px; width: auto; }
+            #Navbar .nav-links { margin: 10px 0 0 0; width: auto; gap: 14px; }
+            #hero { flex-direction: column; height: auto; }
+            #hero .hero-left, #hero .hero-right { width: 90vw; margin: 0; }
+            #skills .skills-grid { grid-template-columns: repeat(2, 1fr); width: 98vw; }
+            #skills .skill-box { width: 40vw; }
+            .projects-cards { flex-direction: column; align-items: center; }
+        }
+        @media (max-width: 600px) {
+            #Navbar { width: 100vw; }
+            #Navbar .logo { margin: 10px 0 0 10px; }
+            #skills .skills-grid { grid-template-columns: 1fr; }
+            #skills .skill-box { width: 80vw; }
+            .project-card { width: 90vw; }
+        }
+    </style>
+</head>
+<body>
+    <!-- navbar -->
+    <div id="Navbar">
+        <div class="logo">
+            <a href="#hero" style="text-decoration: none; color: black; font-weight: 600; font-size: 23px;">Aadyy.Developer</a>
+        </div>
+        <div class="nav-links">
+            <a href="#hero">Home</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+    <!-- hero section -->
+    <div id="hero">
+        <!-- left side -->
+        <div class="hero-left">
+            <p>Hey, I'm</p><br>
+            <h1>Aditya Saini<br><span>A CSE Student & Developer.</span></h1>
+            <p class="desc">I'm a first-year Computer Science student based in India. I enjoy building clean, user-friendly websites and exploring new technologies.</p>
+            <button>Contact Me</button>
+        </div>
+        <!-- right side -->
+        <div class="hero-right">
+            <img src="/images/WhatsApp Image 2025-09-28 at 22.52.48_803c1662.jpg" alt="Aditya Saini">
+        </div>
+    </div>
+    <!-- skills section -->
+    <div id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-box">
+                <img src="https://img.icons8.com/color/96/000000/html-5--v1.png" alt="HTML">
+                <p>HTML</p>
+            </div>
+            <div class="skill-box">
+                <img src="https://img.icons8.com/color/96/000000/css3.png" alt="CSS">
+                <p>CSS</p>
+            </div>
+            <div class="skill-box">
+                <img src="https://img.icons8.com/color/96/000000/javascript--v1.png" alt="JavaScript">
+                <p>JavaScript</p>
+            </div>
+            <div class="skill-box">
+                <img src="https://img.icons8.com/color/96/000000/react-native.png" alt="React">
+                <p>React</p>
+            </div>
+            <div class="skill-box">
+                <img src="https://img.icons8.com/color/96/000000/nodejs.png" alt="Node.js">
+                <p>Node.js</p>
+            </div>
+            <div class="skill-box">
+                <img src="https://img.icons8.com/color/96/000000/python--v1.png" alt="Python">
+                <p>Python</p>
+            </div>  
+            <div class="skill-box">
+                <img src="https://img.icons8.com/color/96/000000/git.png" alt="Git">
+                <p>Git</p>
+            </div>
+            <div class="skill-box">
+                <img src="https://img.icons8.com/color/96/000000/github--v1.png" alt="GitHub">
+                <p>GitHub</p>
+            </div>        
+        </div>
+    </div>
+    <!-- projects section -->
+    <div id="projects">
+        <h2>Projects</h2>
+        <!-- Main Project Detailed Section -->
+        <div class="main-project-card" style="background: rgba(255,255,255,0.97); border-radius: 22px; box-shadow: 0 8px 32px rgba(0,0,0,0.13); width: 99%; max-width: 1100px; margin: 0 auto 40px auto; padding: 36px 32px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center;">
+            <img src="/images/Screenshot 2025-09-28 153445.png" alt="Todo App Screenshot" style="width:440px; height:260px; object-fit:cover; border-radius:16px; box-shadow:0 4px 18px rgba(0,0,0,0.13); flex-shrink:0;">
+            <div style="flex:1; min-width: 240px;">
+                <h3 style="font-size: 28px; font-weight: 700; color: #0088ff; margin-bottom: 12px;">NYAI - Legal Asst. <span style="font-size:16px; color:#444; font-weight:400;">(Frontend Project)</span></h3>
+                <p style="font-size: 17px; color: #333; margin-bottom: 18px; line-height: 1.7;">
+                    <strong>About:</strong> NYAI is an innovative legal AI assistant designed to make law accessible and understandable for everyone.<br><br>
+                    <strong>Tech Stack:</strong> HTML, CSS3, Javascript, LocalStorage, API integration.<br>
+                    <strong>What I learned:</strong> Userinterface ,API integrations, and user experience best practices.
+                </p>
+            <div style="margin-top: 10px; display: flex; gap: 18px;">
+                    <a href="https://nyai.netlify.app/" target="_blank" style="color: #fff; background: #0088ff; padding: 10px 22px; border-radius: 6px; text-decoration: none; font-weight: 500; transition: background 0.2s;">Live Demo</a>
+                    <a href="https://github.com/Aditya-Developer-2007/NYAI" target="_blank" style="color: #0088ff; border: 1px solid #0088ff; padding: 10px 22px; border-radius: 6px; text-decoration: none; font-weight: 500; background: #fff; transition: background 0.2s;">Source Code</a>
+                </div>
+            </div>
+        </div>
+        <div class="projects-cards">
+            <!-- crypto price tracker -->
+            <div class="project-card">
+                <img src="/images/image copy 3.png" alt="Tick Tak Toe app img"
+                width="100%" style="border-radius:12px; margin-bottom:16px;">
+                <h3>Crypto Price Tracker</h3>
+                <p>Crypto Price Tracker delivers real-time market data with a sleek dark UI, showcasing live prices, 24H changes, and market caps for top coins.
+                Built with precision and clarity, it features a searchable interface and dynamic updates—perfect for staying ahead in the crypto game.
+                </p>
+                <div class="card-links">
+                    <a href="https://cryptopricetraker.netlify.app/" target="_blank">Live Demo</a>
+                    <a href="https://github.com/Aditya-Developer-2007/Crypto-Price-Tracker" target="_blank">Source Code</a>
+                </div>
+            </div>
+            <!-- image gallery -->
+            <div class="project-card">
+                <img src="/images/image copy 2.png" alt="Tick Tak Toe app img"
+                width="100%" style="border-radius:12px; margin-bottom:16px;">
+                <h3>Image Gallery</h3>
+                <p>Image Gallery showcases a curated collection of visually striking photos in a sleek, dark-themed grid layout.
+                Built with clean HTML/CSS, it highlights Aadyy’s eye for design, blending modern aesthetics with responsive presentation.
+                </p>
+                <div class="card-links">
+                    <a href="https://aditya-developer-2007.github.io/ImageGalley/" target="_blank">Live Demo</a>
+                    <a href="https://github.com/Aditya-Developer-2007/ImageGalley" target="_blank">Source Code</a>
+                </div>
+            </div>
+            <!-- calculator app -->
+            <div class="project-card">
+                <img src="/images/Screenshot 2025-09-29 214252.png" alt="calculator img"
+                width="100%" style="border-radius:12px; margin-bottom:16px;">
+                <h3>Calculator</h3>
+                <p>Modern calculator blends sleek dark-themed design with real-time expression previews and responsive controls—delivering fast, intuitive calculations across all devices.</p>
+                <div class="card-links">
+                    <a href="https://aditya-developer-2007.github.io/Calculator-app/" target="_blank">Live Demo</a>
+                    <a href="https://github.com/Aditya-Developer-2007/Calculator-app" target="_blank">Source Code</a>
+                </div>
+            </div>
+            <!-- tic tak toe -->
+            <div class="project-card">
+                <img src="/images/image copy.png" alt="Tick Tak Toe app img"
+                width="100%" style="border-radius:12px; margin-bottom:16px;">
+                <h3>Tic Tak Toe</h3>
+                <p>Tic Tac Toe game delivers smooth, interactive gameplay with dynamic state management and instant win detection.
+                Built for responsiveness and clarity, it showcases clean component architecture and intuitive user experience.
+                </p>
+                <div class="card-links">
+                    <a href="https://zippy-zabaione-41edba.netlify.app/" target="_blank">Live Demo</a>
+                    <a href="https://github.com/Aditya-Developer-2007/Tik-Tak_Toe" target="_blank">Source Code</a>
+                </div>
+            </div>
+            <!-- analog clock -->
+            <div class="project-card">
+                <img src="/images/Screenshot 2025-08-11 231011.png" alt="clock image" width="100%" style="border-radius:12px; margin-bottom:16px;">
+                <h3>Analog Clock</h3>
+                <p>World Clock, responsive web app that displays both analog and digital time across global time zones. Built with HTML, CSS, and JavaScript, it features smooth animations, timezone selection, and real-time updates.</p>
+                <div class="card-links">
+                    <a href="https://aditya-developer-2007.github.io/Analog-Clock/" target="_blank">Live Demo</a>
+                    <a href="https://github.com/Aditya-Developer-2007/Analog-Clock" target="_blank">Source Code</a>
+                </div>
+            </div>
+            <!-- weather app -->
+             <div class="project-card">
+                <img src="/images/image.png" alt="wheater app img"
+                width="100%" style="border-radius:12px; margin-bottom:16px;">
+                <h3>Weather App</h3>
+                <p>Weather App delivers real-time forecasts with sleek UI, responsive design, and location-based updates.
+                It showcases clean component structure, API integration, and a smooth user experience across devices.
+                </p>
+                <div class="card-links">
+                    <a href=" https://aditya-developer-2007.github.io/Weather-App/" target="_blank">Live Demo</a>
+                    <a href="https://github.com/Aditya-Developer-2007/Weather-App" target="_blank">Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Interested in working together or have a question? Reach out!</p>
+    <div class="contact-links">
+      <a href="mailto:aaditya.saini2602@gmail.com">Email Me</a>
+      <a href="https://github.com/Aditya-Developer-2007" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/aditya-saini-a98a19367/" target="_blank">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Aditya Saini | Built with using HTML, CSS 
+  </footer>
+</body>
+</html>
